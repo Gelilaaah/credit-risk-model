@@ -1,0 +1,22 @@
+# Data
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML Models
+*.pkl
+*.joblib
+
+# OS Files
+.DS_Store
+Thumbs.db
