@@ -1,22 +1,28 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
 # Data
 data/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-
-# Virtual Environment
-.venv/
-venv/
+*.csv
+*.json
+*.parquet
 
 # Jupyter
 .ipynb_checkpoints/
 
-# ML Models
-*.pkl
-*.joblib
+# Docker
+*.log
+*.pid
+*.sock
+docker-compose.override.yml
 
-# OS Files
-.DS_Store
-Thumbs.db
+# MLflow
+mlruns/
+
