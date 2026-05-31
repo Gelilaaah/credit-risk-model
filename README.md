@@ -1,88 +1,241 @@
-\# Credit Risk Probability Model for Alternative Data
+Credit Risk Probability Model for Alternative Data
 
+End-to-End Credit Scoring, Risk Prediction, and Model Deployment for Buy-Now-Pay-Later Services
 
+---
 
-\## Project Overview
+PROJECT OVERVIEW
 
+Bati Bank is partnering with an eCommerce platform to offer Buy-Now-Pay-Later (BNPL) services. Before granting credit, the bank needs a reliable way to estimate the likelihood that a customer may become a risky borrower.
 
+The challenge is that the available dataset does not contain a direct loan default indicator. Therefore, this project focuses on transforming customer transaction behavior into a meaningful credit risk signal and using machine learning to predict risk probabilities.
 
-This project develops an end-to-end credit risk scoring solution for Bati Bank.
+The final solution will provide:
 
+✓ A proxy credit risk indicator
 
+✓ Risk probability predictions for new customers
 
-The objective is to use alternative transaction data from an eCommerce platform to predict customer credit risk and support Buy-Now-Pay-Later decisions.
+✓ Credit score generation
 
+✓ Loan recommendation support
 
+✓ A deployable REST API
 
-\## Project Structure
+✓ Automated testing and CI/CD integration
 
+---
 
+BUSINESS PROBLEM
 
-\- data/
+Traditional credit scoring models rely heavily on historical loan repayment data. In many emerging markets, such information may be unavailable or incomplete.
 
-\- notebooks/
+To address this challenge, Bati Bank seeks to leverage alternative transaction data from its eCommerce partner.
 
-\- src/
+The objective is to identify behavioral patterns that indicate whether a customer is likely to represent a low-risk or high-risk borrower and convert those patterns into a practical credit scoring solution.
 
-\- tests/
+---
 
-\- .github/workflows/
+PROJECT OBJECTIVES
 
+This project aims to:
 
+• Understand the business and regulatory requirements of credit risk modeling.
 
-\## Technologies
+• Create a proxy target variable representing customer risk.
 
+• Engineer meaningful features from transaction data.
 
+• Train and compare multiple machine learning models.
 
-\- Python
+• Estimate customer risk probabilities.
 
-\- Scikit-Learn
+• Generate credit scores from risk estimates.
 
-\- FastAPI
+• Build a production-ready API for real-time predictions.
 
-\- MLflow
+• Track experiments and model versions using MLflow.
 
-\- Docker
+• Automate testing and deployment workflows.
 
-\- GitHub Actions
+---
 
+CREDIT SCORING BUSINESS UNDERSTANDING
 
+Why Basel II Matters
 
-\## Task 1: Credit Scoring Business Understanding
+The Basel II Accord requires financial institutions to maintain transparent and well-documented risk assessment systems.
 
+This means that every model used to support lending decisions should be:
 
+✓ Explainable
 
-\### Basel II and Model Interpretability
+✓ Auditable
 
+✓ Reproducible
 
+✓ Properly documented
 
-The Basel II Accord requires financial institutions to maintain transparent and well-documented risk assessment processes. As a result, credit scoring models must be explainable, reproducible, and auditable. Interpretability allows risk teams and regulators to understand how predictions are generated and ensures compliance with regulatory requirements.
+As a result, model selection involves more than maximizing accuracy. Regulatory compliance and interpretability are equally important.
 
+---
 
+Why a Proxy Target Variable is Needed
 
-\### Why a Proxy Target is Necessary
+The dataset contains transaction information but does not contain a direct "default" label.
 
+To train a supervised learning model, a target variable must first be created.
 
+This project uses customer behavioral patterns such as:
 
-The dataset does not contain a direct default label. Therefore, a proxy target must be created to represent credit risk. Customer behavior patterns such as Recency, Frequency, and Monetary value can be used to estimate potential default risk.
+• Recency
+• Frequency
+• Monetary Value
 
+to construct a proxy indicator of credit risk.
 
+Customers with weaker transaction behavior may be classified as higher risk, while customers demonstrating stronger engagement and spending patterns may be classified as lower risk.
 
-\### Risks of Proxy-Based Prediction
+---
 
+Business Risks of Using a Proxy
 
+Although proxy targets provide a practical solution, they introduce several risks:
 
-A proxy may not perfectly represent actual default behavior. Incorrect assumptions during proxy creation can introduce bias and reduce model accuracy. Continuous monitoring and validation are necessary.
+• The proxy may not perfectly represent real default behavior.
 
+• Some customer groups may be incorrectly categorized.
 
+• Model performance depends heavily on how the proxy is defined.
 
-\### Trade-Off Between Interpretable and Complex Models
+• Bias can be introduced if the segmentation strategy is poorly designed.
 
+For these reasons, proxy-based models should be carefully validated and continuously monitored.
 
+---
 
-Simple models such as Logistic Regression provide transparency and easier regulatory approval but may achieve lower predictive performance.
+Model Selection: Accuracy vs Interpretability
 
+Logistic Regression
 
+Advantages:
 
-More complex models such as Gradient Boosting often improve prediction accuracy but reduce interpretability. Financial institutions must balance performance and regulatory compliance.
+✓ Easy to explain
 
+✓ Regulatory-friendly
+
+✓ Fast training
+
+✓ Transparent predictions
+
+Limitations:
+
+✗ May struggle with complex patterns
+
+✗ Lower predictive performance
+
+---
+
+Gradient Boosting / XGBoost
+
+Advantages:
+
+✓ Higher predictive accuracy
+
+✓ Captures non-linear relationships
+
+✓ Handles complex interactions
+
+✓ Strong performance on tabular data
+
+Limitations:
+
+✗ Harder to interpret
+
+✗ More difficult to explain to regulators
+
+✗ Requires additional interpretability tools
+
+---
+
+TECHNOLOGY STACK
+
+Programming & Data Science
+
+• Python
+• Pandas
+• NumPy
+• Scikit-Learn
+• XGBoost
+
+Experiment Tracking
+
+• MLflow
+
+API Development
+
+• FastAPI
+• Pydantic
+
+Testing
+
+• Pytest
+
+Containerization
+
+• Docker
+• Docker Compose
+
+Version Control & Automation
+
+• Git
+• GitHub
+• GitHub Actions
+
+---
+
+PROJECT STRUCTURE
+
+credit-risk-model/
+
+├── .github/workflows/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── notebooks/
+├── src/
+│   ├── api/
+│   ├── data_processing.py
+│   ├── train.py
+│   └── predict.py
+├── tests/
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+
+---
+
+EXPECTED OUTCOMES
+
+By the end of this project, Bati Bank will have:
+
+✓ A complete credit risk scoring pipeline
+
+✓ A machine learning model capable of estimating customer risk
+
+✓ Credit score generation capabilities
+
+✓ A production-ready REST API
+
+✓ Automated testing and deployment workflows
+
+✓ A scalable foundation for future lending decisions
+
+---
+
+Author
+
+10 Academy AI Mastery Program
+
+Credit Risk Probability Model for Alternative Data
